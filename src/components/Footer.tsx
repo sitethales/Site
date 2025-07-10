@@ -12,7 +12,7 @@ const Footer = () => {
               className="h-12 w-auto mx-auto md:mx-0 mb-4 opacity-80"
             />
             <p className="font-montserrat text-gray-300 text-sm">
-              Copyright 2023 – Todos os direitos reservados.
+              Copyright 2025 – Todos os direitos reservados.
             </p>
           </div>
           

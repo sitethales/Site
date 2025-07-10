@@ -1,5 +1,7 @@
-
-const About = () => {
+import { memo } from 'react';
+import { OptimizedImage } from './Performance/LazyComponents';
+import { AnimatedContactButton } from './ui/button-perso';
+const About = memo(() => {
   return (
     <section id="sobre" className="py-20 bg-gradient-to-br from-white to-accent/20 section-animate">
       <div className="container mx-auto px-4">
@@ -7,10 +9,11 @@ const About = () => {
           {/* Left side - Image with overlay design */}
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl">
-              <img
+              <OptimizedImage
                 src="https://thalesvalimangelo.com.br/wp-content/uploads/2024/09/BAB2831-1-843x1024.jpg"
-                alt="Thales Valim Angelo"
+                alt="Thales Valim Angelo - Psicólogo especialista em Avaliação Psicológica"
                 className="w-full h-[650px] object-cover object-center"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
               
@@ -21,8 +24,9 @@ const About = () => {
                     <span className="text-2xl font-bold text-primary">5+</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-primary">Anos de experiência</p>
-                    <p className="text-sm text-gray-600">Atendimento especializado LGBTQIA+</p>
+                    <p className="font-semibold text-primary">Anos de experiência em Avaliação Psicológica.</p>
+                    <p className="text-sm text-gray-600">Elaboração de laudos, relatórios, atestados e
+pareceres psicológicos para diversas finalidades.</p>
                   </div>
                 </div>
               </div>
@@ -35,9 +39,9 @@ const About = () => {
               <h2 className="font-arima text-4xl md:text-5xl font-bold text-primary mb-4">
                 Thales Valim Angelo
               </h2>
-              <div className="w-16 h-1 bg-primary rounded-full mb-6"></div>
+              <div className="w-30 md:w-32 h-1 bg-primary rounded-full mb-6"></div>
               <p className="text-lg text-gray-600 font-light">
-                Psicólogo Clínico especializado em Gestalt-terapia
+                Psicólogo Especializado em Avaliação Psicológica.
               </p>
             </div>
             
@@ -46,9 +50,9 @@ const About = () => {
               <div className="flex items-start gap-4">
                 <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                 <div>
-                  <h3 className="font-semibold text-primary mb-2">Especialização LGBTQIA+</h3>
+                  <h3 className="font-semibold text-primary mb-2">Graduado em Psicologia pela Universidade Federal de Santa Catarina (UFSC)</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Atendimento humanizado e acolhedor em um espaço seguro e livre de julgamentos.
+                    Atuação com base técnica, escuta qualificada e compromisso ético.
                   </p>
                 </div>
               </div>
@@ -56,9 +60,9 @@ const About = () => {
               <div className="flex items-start gap-4">
                 <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                 <div>
-                  <h3 className="font-semibold text-primary mb-2">Abordagem Gestalt-terapia</h3>
+                  <h3 className="font-semibold text-primary mb-2">Especialização em Avaliação Psicológica</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Priorizando o aqui e agora, integração de experiências e desenvolvimento da consciência.
+                   Elaboração de documentos técnicos para diferentes contextos e finalidades.
                   </p>
                 </div>
               </div>
@@ -66,9 +70,10 @@ const About = () => {
               <div className="flex items-start gap-4">
                 <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
                 <div>
-                  <h3 className="font-semibold text-primary mb-2">Avaliação Psicológica</h3>
+                  <h3 className="font-semibold text-primary mb-2">Experiência em processos avaliativos diversos</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    Acompanhamento especializado para tratamentos de afirmação de gênero.
+                    Avaliações voltadas à saúde, justiça, cirurgias, processos seletivos e demais
+contextos institucionais.
                   </p>
                 </div>
               </div>
@@ -76,15 +81,15 @@ const About = () => {
 
             {/* CTA */}
             <div className="pt-4">
-              <button className="bg-primary text-white px-8 py-3 rounded-xl font-medium hover:bg-primary/90 transition-colors">
-                Agendar Consulta
-              </button>
+              <AnimatedContactButton />
             </div>
           </div>
         </div>
       </div>
     </section>
   );
-};
+});
+
+About.displayName = 'About';
 
 export default About;

@@ -1,7 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import { User, MessageCircle, Check, CheckCircle } from 'lucide-react';
+import { sanitizeInput, isValidEmail, sanitizePhoneNumber } from './Security/CSPHeaders';
 
 interface FormData {
   name: string;
@@ -19,7 +20,7 @@ interface FormErrors {
   message?: string;
 }
 
-const ContactForm = () => {
+const ContactForm = memo(() => {
   const [activeStep, setActiveStep] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
@@ -56,14 +57,14 @@ const ContactForm = () => {
     },
   ];
 
-  const validateStep = (step: number) => {
+  const validateStep = useCallback((step: number) => {
     const newErrors: FormErrors = {};
     
     if (step === 0) {
       if (!formData.name.trim()) newErrors.name = 'Nome é obrigatório';
       if (!formData.email.trim()) {
         newErrors.email = 'Email é obrigatório';
-      } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
+      } else if (!isValidEmail(formData.email)) {
         newErrors.email = 'Email inválido';
       }
       if (!formData.phone.trim()) {
@@ -81,7 +82,7 @@ const ContactForm = () => {
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  };
+  }, [formData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -124,24 +125,34 @@ const ContactForm = () => {
     setActiveStep(prev => prev - 1);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     if (validateStep(activeStep)) {
       setIsSending(true);
 
       try {
-        await emailjs.sendForm(
-          'YOUR_SERVICE_ID',
-          'YOUR_TEMPLATE_ID',
-          formRef.current,
-          'YOUR_PUBLIC_KEY'
+        // Sanitize form data before sending
+        const sanitizedData = {
+          name: sanitizeInput(formData.name),
+          email: sanitizeInput(formData.email),
+          phone: sanitizePhoneNumber(formData.phone),
+          subject: sanitizeInput(formData.subject),
+          message: sanitizeInput(formData.message),
+        };
+
+        await emailjs.send(
+          'service_yv2bgaa',
+          'template_n1bblcn',
+          sanitizedData,
+          'bydcH4PJkgHcGJ0o0'
         );
 
         setIsSending(false);
         setIsSent(true);
         setActiveStep(3);
         setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        setErrors({});
         
         setTimeout(() => {
           setIsSent(false);
@@ -153,7 +164,7 @@ const ContactForm = () => {
         alert('Ocorreu um erro ao enviar sua mensagem. Tente novamente.');
       }
     }
-  };
+  }, [formData, activeStep, validateStep]);
 
   return (
     <div id='contato' className="min-h-screen bg-gradient-to-br from-background via-accent/20 to-secondary/30 py-12 px-4 sm:px-6 lg:px-8">
@@ -273,7 +284,7 @@ const ContactForm = () => {
                     <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                       <User className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="text-xl font-arima font-semibold text-foreground">Seus dados de contato</h3>
+                    <h3 className="text-xl font-semibold text-foreground">Seus dados de contato</h3>
                   </div>
                   
                   <div className="grid md:grid-cols-2 gap-6">
@@ -348,7 +359,7 @@ const ContactForm = () => {
                     <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                       <MessageCircle className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="text-xl font-arima font-semibold text-foreground">Sua mensagem</h3>
+                    <h3 className="text-xl font-semibold text-foreground">Sua mensagem</h3>
                   </div>
                   
                   <div className="space-y-6">
@@ -405,7 +416,7 @@ const ContactForm = () => {
                     <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Check className="h-5 w-5 text-primary" />
                     </div>
-                    <h3 className="text-xl font-arima font-semibold text-foreground">Confira seus dados</h3>
+                    <h3 className="text-xl font-semibold text-foreground">Confira seus dados</h3>
                   </div>
                   
                   <div className="bg-accent/30 backdrop-blur-sm rounded-xl p-6 space-y-4 border border-border/30">
@@ -459,7 +470,7 @@ const ContactForm = () => {
                       <CheckCircle className="h-10 w-10 text-primary" />
                     </div>
                   </motion.div>
-                  <h3 className="text-2xl font-arima font-bold text-primary mb-4">Mensagem Enviada!</h3>
+                  <h3 className="text-2xl font-bold text-primary mb-4">Mensagem Enviada!</h3>
                   <p className="text-muted-foreground max-w-md mx-auto font-montserrat">
                     Obrigado pelo seu contato. Responderei o mais breve possível.
                   </p>
@@ -528,6 +539,8 @@ const ContactForm = () => {
       </div>
     </div>
   );
-};
+});
+
+ContactForm.displayName = 'ContactForm';
 
 export default ContactForm;

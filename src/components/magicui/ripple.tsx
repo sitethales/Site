@@ -31,7 +31,7 @@ const Ripple = React.memo(function Ripple({
         return (
           <div
             key={i}
-            className={`absolute inset-0 animate-pulse rounded-full border border-foreground/25 [--animation-delay:${animationDelay}]`}
+            className={`absolute inset-0 animate-pulse rounded-full border border-foreground/25`}
             style={
               {
                 width: `${size}px`,

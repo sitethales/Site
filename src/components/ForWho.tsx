@@ -4,24 +4,24 @@ const ForWho = () => {
 
    const targetAudience = [
     {
-      title: "LGBTQIA+",
-      description: "LGBTQIA+ que buscam apoio especializado em um espaço seguro.",
-      image: "/image-s0P0rbypZSGqrsWNgD2DTpsxcfsrMJ.png"
+      title: "Empresas e organizações",
+      description: "Para organizações que solicitam avaliações psicossociais em processos de admissão, retorno ao trabalho, mudança de função ou desligamento. Também inclui avaliações em recrutamento e seleção.",
+      image: "https://www.thiings.co/_next/image?url=https%3A%2F%2Flftz25oez4aqbxpq.public.blob.vercel-storage.com%2Fimage-OFwUiXE5rQRHFHmyeQ3A174tB4u8Bi.png&w=3840&q=75"
     },
     {
-      title: "Famílias",
-      description: "Familiares de LGBTQIA+ com dúvidas sobre identidade, orientação sexual ou gênero.",
-      image: "/image-iSpZcrHmxvZHZPeIwv3rttJNK7TGqu.png"
+      title: "Advogados(as) e profissionais do Direito",
+      description: "Atuação como assistente técnico e produção de pareceres psicológicos em processos judiciais. Apoio a ações nas áreas de família, cível e criminal.",
+      image: "https://www.thiings.co/_next/image?url=https%3A%2F%2Flftz25oez4aqbxpq.public.blob.vercel-storage.com%2Fimage-fK0f4JKk6zHX1amymK92K6T2OE3L3q.png&w=3840&q=75"
     },
     {
       title: "Público Geral",
-      description: "Adolescentes, adultos e idosos procurando acompanhamento para saúde mental (ansiedade, depressão, etc.).",
-      image: "/image-WaLIdwjgmqnfE0GndCGu1R9ReZOal5.png"
+      description: "Para quem precisa de avaliação para procedimentos cirúrgicos (bariátrica, laqueadura, vasectomia, redesignação sexual), processos seletivos e concursos, psicodiagnóstico, afirmação de gênero, entre outras finalidades clínicas, legais ou institucionais.",
+      image: "https://www.thiings.co/_next/image?url=https%3A%2F%2Flftz25oez4aqbxpq.public.blob.vercel-storage.com%2Fimage-WaLIdwjgmqnfE0GndCGu1R9ReZOal5.png&w=3840&q=75"
     },
     {
-      title: "Afirmação de Gênero",
-      description: "Quem precisa de avaliação psicológica para tratamentos de afirmação de gênero (hormonioterapia, cirurgias).",
-      image: "/image-6YCD688sjOC1kmBZgegAoQNGOCBOuQ.webp"
+      title: "Profissionais da saúde e instituições médicas",
+      description: "Atendimento a demandas clínicas que requerem parecer ou laudo psicológico como parte de tratamentos, como cirurgias, terapia hormonal para afirmação de gênero, reprodução assistida e outras intervenções médicas.",
+      image: "https://www.thiings.co/_next/image?url=https%3A%2F%2Flftz25oez4aqbxpq.public.blob.vercel-storage.com%2Fimage-ViY6rawiI2uiV9tsy3QGZXdyngtXrC.png&w=3840&q=75"
     }
   ];
 
@@ -30,10 +30,11 @@ const ForWho = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-arima text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-            Para Quem É
+            Direcionado Para Quem?
           </h2>
           <p className="font-montserrat text-gray-600 text-lg max-w-2xl mx-auto">
-            Atendimento especializado e acolhedor para diferentes públicos e necessidades
+            Avaliações psicológicas realizadas com base ética, escuta qualificada e precisão técnica
+voltadas a diferentes contextos e demandas.
           </p>
         </div>
         
@@ -58,10 +59,10 @@ const ForWho = () => {
               </div>
               
               <div>
-                <h3 className="font-arima text-xl font-semibold text-primary mb-3">
+                <h3 className="text-xl font-semibold text-primary mb-3">
                   {audience.title}
                 </h3>
-                <p className="font-montserrat text-muted-foreground text-sm leading-relaxed">
+                <p className="font-montserrat text-muted-foreground text-xs leading-relaxed px-2 md:px-0">
                   {audience.description}
                 </p>
               </div>
