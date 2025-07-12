@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
+import { X, Cookie } from 'lucide-react';
 import { setCookieConsent, getCookieConsent } from '../utils/analytics';
 
 const CookieConsent: React.FC = () => {
@@ -25,41 +25,50 @@ const CookieConsent: React.FC = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 max-w-md">
-      <Card className="shadow-lg border-l-4 border-l-blue-500">
-        <CardHeader className="pb-3">
-          <CardTitle className="text-sm font-semibold text-gray-800">
-            🍪 Cookies e Privacidade
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <CardDescription className="text-xs text-gray-600">
-            Este site utiliza cookies para melhorar sua experiência de navegação 
-            e analisar o tráfego. Ao continuar navegando, você concorda com nossa 
-            política de cookies.
-          </CardDescription>
-          <div className="flex space-x-2">
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 md:bottom-4 md:right-4 md:left-auto md:max-w-md">
+      <div className="bg-white rounded-lg shadow-xl border border-gray-200 backdrop-blur-sm">
+        <div className="p-4">
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <Cookie className="h-5 w-5 text-blue-600" />
+              <h3 className="font-semibold text-gray-900 text-sm">
+                Cookies e Privacidade
+              </h3>
+            </div>
+            <button
+              onClick={handleDecline}
+              className="text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          
+          <p className="text-sm text-gray-600 mb-4 leading-relaxed">
+            Este site utiliza cookies para melhorar sua experiência de navegação. 
+            Ao continuar, você concorda com nossa política de privacidade.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-2">
             <Button 
               onClick={handleAccept}
-              size="sm"
-              className="bg-blue-600 hover:bg-blue-700 text-white flex-1"
+              className="bg-blue-600 hover:bg-blue-700 text-white flex-1 text-sm h-9"
             >
-              Aceitar
+              Aceitar Cookies
             </Button>
             <Button 
               onClick={handleDecline}
               variant="outline"
-              size="sm"
-              className="flex-1"
+              className="flex-1 text-sm h-9 border-gray-300 hover:bg-gray-50"
             >
               Recusar
             </Button>
           </div>
-          <p className="text-xs text-gray-500 mt-2">
+          
+          <p className="text-xs text-gray-500 mt-3 text-center">
             Você pode alterar suas preferências a qualquer momento.
           </p>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </div>
   );
 };

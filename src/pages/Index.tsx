@@ -8,8 +8,6 @@ import { preloadCriticalResources, optimizeImages } from '../utils/seo-utils';
 import { trackPerformance } from '../utils/analytics';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import SEOContent from '../components/SEOContent';
-import SEOFAQSection from '../components/SEOFAQSection';
 import CookieConsent from '../components/CookieConsent';
 
 // Lazy load heavy components for better performance
@@ -77,12 +75,10 @@ const Index = memo(() => {
       <Header />
       <Hero />
       <About />
-      <SEOContent />
       <Services />
       <ForWho />
       <Schedule />
       <FAQ />
-      <SEOFAQSection />
       <Contact />
       <Footer />
       <CookieConsent />

@@ -5,11 +5,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// Registra o plugin ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
 
 const faqItems = [
   {
@@ -25,12 +20,28 @@ const faqItems = [
     answer: "Utilizo Google Meet, Zoom ou WhatsApp, conforme a preferência e disponibilidade do paciente."
   },
   {
+    question: "O que é avaliação psicológica e quando é necessária?",
+    answer: "A avaliação psicológica é um processo técnico-científico que visa compreender o funcionamento psicológico de uma pessoa através de testes, entrevistas e observações. É necessária para processos judiciais, concursos públicos, cirurgias bariátricas, porte de arma, mudança de nome e gênero, entre outros."
+  },
+  {
+    question: "Qual a diferença entre laudo, relatório e parecer psicológico?",
+    answer: "O laudo psicológico é um documento técnico detalhado resultante de avaliação psicológica. O relatório é mais descritivo e narrativo, usado em acompanhamentos. O parecer é uma opinião técnica específica sobre uma questão psicológica pontual."
+  },
+  {
+    question: "Você atende a comunidade LGBTQIA+?",
+    answer: "Sim, sou especializado em atendimento à comunidade LGBTQIA+ com abordagem afirmativa e acolhedora. Ofereço suporte para questões de identidade de gênero, orientação sexual, processos de transição e outros desafios específicos da comunidade."
+  },
+  {
     question: "Como funcionam os valores das consultas?",
     answer: "Os valores seguem as diretrizes do CFP (Conselho Federal de Psicologia) e são discutidos individualmente com cada paciente."
   },
   {
     question: "Quais formas de pagamento são aceitas?",
     answer: "Aceito pagamentos via Pix e transferência bancária para maior comodidade dos pacientes."
+  },
+  {
+    question: "Quanto tempo demora uma avaliação psicológica?",
+    answer: "O processo de avaliação psicológica geralmente leva de 3 a 5 sessões, dependendo da complexidade e finalidade. Inclui entrevistas, aplicação de testes psicológicos, análise dos resultados e elaboração do documento final."
   },
   {
     question: "É possível ter reembolso pelo plano de saúde?",
@@ -42,71 +53,35 @@ const faqItems = [
 export default function FAQ() {
   // Refs para elementos que serão animados
   const sectionRef = useRef(null);
-  const headerRef = useRef(null);
   const titleRef = useRef(null);
   const subtitleRef = useRef(null);
   const accordionRef = useRef(null);
-  const faqItemsRef = useRef([]);
   
   // Configura as animações quando o componente é montado
   useEffect(() => {
-    // Função para animar os elementos
+    // Função para animar os elementos sem GSAP
     const animateElements = () => {
-      // Usa um timeline para gerenciar todas as animações juntas
-      const tl = gsap.timeline({
-        defaults: {
-          ease: 'power2.out',
-          duration: 0.4
-        }
-      });
+      // Anima o título
+      if (titleRef.current) {
+        (titleRef.current as HTMLElement).style.opacity = '1';
+        (titleRef.current as HTMLElement).style.transform = 'translateY(0)';
+      }
       
-      // Adiciona animações ao timeline de forma sequencial
-      tl.fromTo(
-        titleRef.current,
-        { opacity: 0, y: 15 },
-        { opacity: 1, y: 0 }
-      )
-      .fromTo(
-        subtitleRef.current,
-        { opacity: 0, y: 10 },
-        { opacity: 1, y: 0 },
-        '-=0.3'  // Começando um pouco antes da anterior terminar
-      )
-      .fromTo(
-        accordionRef.current,
-        { opacity: 0, y: 20 },
-        { 
-          opacity: 1, 
-          y: 0,
-          duration: 0.6,
-          onComplete: () => {
-            // Garantir que o Accordion fique visível após a animação
-            if (accordionRef.current) {
-              gsap.set(accordionRef.current, { clearProps: "all" });
-            }
-          }
-        },
-        '-=0.2'
-      );
-      
-      // Anima os itens do acordeão com efeito staggered
-      // Adicionamos um pequeno delay para garantir que a animação do acordeão seja visível
+      // Anima o subtítulo
       setTimeout(() => {
-        gsap.fromTo(
-          faqItemsRef.current.filter(Boolean),
-          { 
-            opacity: 0.5,
-            y: 10
-          },
-          { 
-            opacity: 1,
-            y: 0,
-            stagger: 0.1,
-            clearProps: "transform",
-            ease: 'power2.out'
-          }
-        );
-      }, 300);
+        if (subtitleRef.current) {
+          (subtitleRef.current as HTMLElement).style.opacity = '1';
+          (subtitleRef.current as HTMLElement).style.transform = 'translateY(0)';
+        }
+      }, 200);
+      
+      // Anima o accordion
+      setTimeout(() => {
+        if (accordionRef.current) {
+          (accordionRef.current as HTMLElement).style.opacity = '1';
+          (accordionRef.current as HTMLElement).style.transform = 'translateY(0)';
+        }
+      }, 400);
     };
     
     // Observer para animações com base no scroll
@@ -138,30 +113,25 @@ export default function FAQ() {
       ref={sectionRef}
     >
       <div className="container mx-auto px-4">
-        <div 
-          ref={headerRef}
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16">
           <h2 
             ref={titleRef}
-            className="font-arima text-4xl md:text-5xl font-bold text-primary mb-4 opacity-0"
+            className="font-arima text-4xl md:text-5xl font-bold text-primary mb-4 opacity-0 transform translate-y-4 transition-all duration-700"
           >
             Perguntas Frequentes
           </h2>
           <p 
             ref={subtitleRef}
-            className="font-montserrat text-muted-foreground text-lg max-w-2xl mx-auto opacity-0"
+            className="font-montserrat text-muted-foreground text-lg max-w-2xl mx-auto opacity-0 transform translate-y-4 transition-all duration-700"
           >
             Esclareça suas dúvidas sobre o processo terapêutico
           </p>
         </div>
 
-        <div 
-          className="max-w-3xl mx-auto"
-        >
+        <div className="max-w-3xl mx-auto">
           <div 
             ref={accordionRef}
-            className="bg-card rounded-3xl shadow-warm border border-accent/20 overflow-hidden backdrop-blur-sm opacity-0"
+            className="bg-card rounded-3xl shadow-warm border border-accent/20 overflow-hidden backdrop-blur-sm opacity-0 transform translate-y-4 transition-all duration-700"
           >
             <Accordion
               type="single"
@@ -174,9 +144,6 @@ export default function FAQ() {
                   key={index} 
                   value={`item-${index}`}
                   className="border-b border-accent/20 last:border-b-0"
-                  ref={(el) => {
-                    if (el) faqItemsRef.current[index] = el;
-                  }}
                 >
                   <AccordionTrigger className="px-6 py-4 font-montserrat font-semibold text-primary hover:no-underline hover:bg-accent/10 transition-colors text-start">
                     {item.question}

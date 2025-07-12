@@ -13,7 +13,7 @@ export const GA_TRACKING_ID = process.env.REACT_APP_GA_TRACKING_ID || '';
 // Initialize Google Analytics
 export const initGA = () => {
   if (!GA_TRACKING_ID) {
-    console.warn('Google Analytics tracking ID not found');
+    console.log('Google Analytics não configurado - funcionando normalmente sem tracking');
     return;
   }
 
@@ -40,7 +40,7 @@ export const initGA = () => {
 
 // Track page views
 export const trackPageView = (url: string, title: string) => {
-  if (typeof window.gtag === 'function') {
+  if (typeof window.gtag === 'function' && GA_TRACKING_ID) {
     window.gtag('config', GA_TRACKING_ID, {
       page_title: title,
       page_location: url,
@@ -50,7 +50,7 @@ export const trackPageView = (url: string, title: string) => {
 
 // Track events
 export const trackEvent = (action: string, category: string, label?: string, value?: number) => {
-  if (typeof window.gtag === 'function') {
+  if (typeof window.gtag === 'function' && GA_TRACKING_ID) {
     window.gtag('event', action, {
       event_category: category,
       event_label: label,

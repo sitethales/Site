@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import { User, MessageCircle, Check, CheckCircle } from 'lucide-react';
 import { sanitizeInput, isValidEmail, sanitizePhoneNumber } from './Security/CSPHeaders';
+import { EMAILJS_CONFIG } from '../config/emailjs';
 
 interface FormData {
   name: string;
@@ -142,10 +143,10 @@ const ContactForm = memo(() => {
         };
 
         await emailjs.send(
-          'service_yv2bgaa',
-          'template_n1bblcn',
+          EMAILJS_CONFIG.SERVICE_ID,
+          EMAILJS_CONFIG.TEMPLATE_ID,
           sanitizedData,
-          'bydcH4PJkgHcGJ0o0'
+          EMAILJS_CONFIG.PUBLIC_KEY
         );
 
         setIsSending(false);

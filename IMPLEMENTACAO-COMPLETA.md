@@ -13,7 +13,7 @@
 
 ### 2. **Conteúdo SEO-Friendly**
 - [x] **Componente SEOContent** - Seção rica em palavras-chave
-- [x] **FAQ Expandido** - 10 perguntas com keywords relevantes
+- [x] **FAQ Expandido** - Integrado ao FAQ original com 10 perguntas SEO
 - [x] **Informações de Contato** - Estruturadas e visíveis
 - [x] **Localização** - Geo-tags para Santa Catarina
 - [x] **Serviços Detalhados** - Descrições completas

@@ -143,7 +143,7 @@ const Services = () => {
       <rect x="73" y="108" width="54" height="22" rx="4" fill="#ffffff" opacity="0.9" />
       
       {/* Texto e seta no display */}
-      <text x="95" y="122" textAnchor="middle" fontSize="10" fill="#374151" fontWeight="bold">-15kg</text>
+      <text x="95" y="122" textAnchor="middle" fontSize="10" fill="#374151" fontWeight="bold">-kg</text>
       <path d="M115 116 L115 125 M112 122 L115 125 L118 122" 
             stroke="#dc2626" 
             strokeWidth="2.5" 
