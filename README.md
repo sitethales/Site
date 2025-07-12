@@ -226,7 +226,7 @@ Este é um projeto privado, mas feedbacks e sugestões são bem-vindos:
 
 ## 📄 Licença
 
-Este projeto é propriedade privada de Thales Valim Angelo. Todos os direitos reservados.
+Este projeto é propriedade privada de Joao Victor Franco. Todos os direitos reservados.
 
 ## 📞 Contato
 
