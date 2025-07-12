@@ -6,15 +6,19 @@ import {
 } from "@/components/ui/accordion";
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Registra o plugin ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 const faqItems = [
   {
     question: "Qual é a duração de cada sessão?",
-    answer: "Cada sessão tem duração de aproximadamente 1 hora, podendo variar conforme a necessidade específica de cada paciente."
+    answer: "Cada sessão tem duração de aproximadamente 1 hora, podendo variar conforme a necessidade específica de cada pessoa."
   },
   {
     question: "Os atendimentos são presenciais ou online?",
-    answer: "Atualmente ofereço apenas atendimentos online, proporcionando maior comodidade e acesso aos meus serviços."
+    answer: "Ambas as modalidades estão disponíveis. Os atendimentos presenciais acontecem no Centro de Florianópolis (SC), em local reservado e de fácil acesso. Também realizo atendimentos on-line para pessoas de qualquer lugar do Brasil e do exterior, com a mesma qualidade, ética e sigilo profissional."
   },
   {
     question: "Qual plataforma é utilizada para os atendimentos?",
@@ -30,7 +34,7 @@ const faqItems = [
   },
   {
     question: "É possível ter reembolso pelo plano de saúde?",
-    answer: "Sim, é possível solicitar reembolso através do recibo fornecido após cada sessão, junto com pedido médico contendo CID."
+    answer: "Para isso, você deve verificar com a operadora se há cobertura e quais documentos são exigidos. Em caso de elegibilidade, emito nota fiscal e, se necessário, um relatório descritivo para fins de reembolso. A liberação e o valor dependem do seu plano."
   }
 ];
 
@@ -48,14 +52,6 @@ export default function FAQ() {
   useEffect(() => {
     // Função para animar os elementos
     const animateElements = () => {
-      // Aplica direto a visibilidade para evitar bugs de renderização
-      if (accordionRef.current) {
-        gsap.set(accordionRef.current, { 
-          opacity: 1, 
-          clearProps: "visibility,height,overflow"
-        });
-      }
-
       // Usa um timeline para gerenciar todas as animações juntas
       const tl = gsap.timeline({
         defaults: {
@@ -78,31 +74,39 @@ export default function FAQ() {
       )
       .fromTo(
         accordionRef.current,
-        { y: 20 }, // Removido opacity para evitar conflitos
+        { opacity: 0, y: 20 },
         { 
+          opacity: 1, 
           y: 0,
-          duration: 0.5,
-          ease: 'power1.out'
+          duration: 0.6,
+          onComplete: () => {
+            // Garantir que o Accordion fique visível após a animação
+            if (accordionRef.current) {
+              gsap.set(accordionRef.current, { clearProps: "all" });
+            }
+          }
         },
         '-=0.2'
       );
       
-      // Anima cada item do FAQ individualmente
-      faqItemsRef.current.forEach((item, index) => {
-        if (item) {
-          gsap.fromTo(
-            item,
-            { opacity: 0.5, y: 10 },
-            { 
-              opacity: 1, 
-              y: 0, 
-              duration: 0.4,
-              delay: 0.1 + (index * 0.08), // Efeito escalonado
-              ease: 'power2.out'
-            }
-          );
-        }
-      });
+      // Anima os itens do acordeão com efeito staggered
+      // Adicionamos um pequeno delay para garantir que a animação do acordeão seja visível
+      setTimeout(() => {
+        gsap.fromTo(
+          faqItemsRef.current.filter(Boolean),
+          { 
+            opacity: 0.5,
+            y: 10
+          },
+          { 
+            opacity: 1,
+            y: 0,
+            stagger: 0.1,
+            clearProps: "transform",
+            ease: 'power2.out'
+          }
+        );
+      }, 300);
     };
     
     // Observer para animações com base no scroll
@@ -152,11 +156,12 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div 
+          className="max-w-3xl mx-auto"
+        >
           <div 
             ref={accordionRef}
-            className="bg-card rounded-xl shadow-warm border border-accent/20 overflow-hidden backdrop-blur-sm"
-            style={{ opacity: 0 }}
+            className="bg-card rounded-3xl shadow-warm border border-accent/20 overflow-hidden backdrop-blur-sm opacity-0"
           >
             <Accordion
               type="single"

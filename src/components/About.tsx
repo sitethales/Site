@@ -77,6 +77,17 @@ contextos institucionais.
                   </p>
                 </div>
               </div>
+
+              <div className="flex items-start gap-4">
+                <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                <div>
+                  <h3 className="font-semibold text-primary mb-2">Atendimento presencial e on-line</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    Atendimentos realizados de forma presencial no Centro de Florianópolis/SC e on-line para
+todo o Brasil e exterior, com a mesma qualidade, ética e sigilo profissional.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* CTA */}

@@ -12,7 +12,7 @@ const Footer = () => {
               className="h-12 w-auto mx-auto md:mx-0 mb-4 opacity-80"
             />
             <p className="font-montserrat text-gray-300 text-sm">
-              Copyright 2025 – Todos os direitos reservados.
+              Copyright 2025 – Todos os direitos reservados. Desenvolvido por João Vitor Franco   
             </p>
           </div>
           
@@ -24,7 +24,7 @@ const Footer = () => {
                 📞 (48) 98413-6071
               </p>
               <p className="font-montserrat text-gray-300">
-                ✉️ contato@thalesvalimangelo.com.br
+                ✉️ thalesvalimpsi@gmail.com
               </p>
             </div>
           </div>
@@ -34,13 +34,14 @@ const Footer = () => {
             <h4 className="font-arima font-semibold text-white mb-4">Informações</h4>
             <div className="space-y-2 text-sm">
               <p className="font-montserrat text-gray-300">
-                📍 Florianópolis, SC
+                📍
+                Praça XV de Novembro, 153, Florianópolis, SC
               </p>
               <p className="font-montserrat text-gray-300">
-                CRP: [Número do registro]
+                CRP: 12/22939
               </p>
               <p className="font-montserrat text-gray-300">
-                Especialista LGBTQIA+
+                Especialização em Avaliação Psicológica
               </p>
             </div>
           </div>

@@ -130,7 +130,7 @@ const Hero = () => {
               ref={subtitleRef}
               className="hero-subtitle font-montserrat text-xl md:text-2xl text-muted-foreground leading-relaxed"
             >
-              Especialista em Avaliação Psicológica com abordagem ética, técnica e acolhedora.
+              Psicólogo Especialista em Avaliação Psicológica com abordagem ética, técnica e acolhedora.
             </p>
 
             <div 
