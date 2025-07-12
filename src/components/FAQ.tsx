@@ -20,28 +20,12 @@ const faqItems = [
     answer: "Utilizo Google Meet, Zoom ou WhatsApp, conforme a preferência e disponibilidade do paciente."
   },
   {
-    question: "O que é avaliação psicológica e quando é necessária?",
-    answer: "A avaliação psicológica é um processo técnico-científico que visa compreender o funcionamento psicológico de uma pessoa através de testes, entrevistas e observações. É necessária para processos judiciais, concursos públicos, cirurgias bariátricas, porte de arma, mudança de nome e gênero, entre outros."
-  },
-  {
-    question: "Qual a diferença entre laudo, relatório e parecer psicológico?",
-    answer: "O laudo psicológico é um documento técnico detalhado resultante de avaliação psicológica. O relatório é mais descritivo e narrativo, usado em acompanhamentos. O parecer é uma opinião técnica específica sobre uma questão psicológica pontual."
-  },
-  {
-    question: "Você atende a comunidade LGBTQIA+?",
-    answer: "Sim, sou especializado em atendimento à comunidade LGBTQIA+ com abordagem afirmativa e acolhedora. Ofereço suporte para questões de identidade de gênero, orientação sexual, processos de transição e outros desafios específicos da comunidade."
-  },
-  {
     question: "Como funcionam os valores das consultas?",
     answer: "Os valores seguem as diretrizes do CFP (Conselho Federal de Psicologia) e são discutidos individualmente com cada paciente."
   },
   {
     question: "Quais formas de pagamento são aceitas?",
     answer: "Aceito pagamentos via Pix e transferência bancária para maior comodidade dos pacientes."
-  },
-  {
-    question: "Quanto tempo demora uma avaliação psicológica?",
-    answer: "O processo de avaliação psicológica geralmente leva de 3 a 5 sessões, dependendo da complexidade e finalidade. Inclui entrevistas, aplicação de testes psicológicos, análise dos resultados e elaboração do documento final."
   },
   {
     question: "É possível ter reembolso pelo plano de saúde?",
