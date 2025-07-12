@@ -1,12 +1,16 @@
-
 import { useEffect, memo } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SEOHead } from '../components/SEO/MetaTags';
 import { useSecurityHeaders } from '../components/Security/CSPHeaders';
 import { withLazyLoading } from '../components/Performance/LazyComponents';
+import { preloadCriticalResources, optimizeImages } from '../utils/seo-utils';
+import { trackPerformance } from '../utils/analytics';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import SEOContent from '../components/SEOContent';
+import SEOFAQSection from '../components/SEOFAQSection';
+import CookieConsent from '../components/CookieConsent';
 
 // Lazy load heavy components for better performance
 const About = withLazyLoading(() => import('../components/About'));
@@ -24,11 +28,18 @@ const Index = memo(() => {
   useSecurityHeaders();
 
   useEffect(() => {
+    // SEO optimizations
+    preloadCriticalResources();
+    optimizeImages();
+    
+    // Performance tracking
+    trackPerformance();
+    
     // Performance optimized GSAP animations
     const sections = gsap.utils.toArray('.section-animate');
     const triggers: ScrollTrigger[] = [];
     
-    sections.forEach((section: any) => {
+    sections.forEach((section: Element) => {
       const trigger = ScrollTrigger.create({
         trigger: section,
         start: 'top 85%',
@@ -66,12 +77,15 @@ const Index = memo(() => {
       <Header />
       <Hero />
       <About />
+      <SEOContent />
       <Services />
       <ForWho />
       <Schedule />
       <FAQ />
+      <SEOFAQSection />
       <Contact />
       <Footer />
+      <CookieConsent />
     </div>
   );
 });
