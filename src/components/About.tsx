@@ -10,7 +10,7 @@ const About = memo(() => {
           <div className="relative">
             <div className="relative overflow-hidden rounded-2xl">
               <OptimizedImage
-                src="https://thalesvalimangelo.com.br/wp-content/uploads/2024/09/BAB2831-1-843x1024.jpg"
+                src="/foto-thales.webp"
                 alt="Thales Valim Angelo - Psicólogo especialista em Avaliação Psicológica"
                 className="w-full h-[650px] object-cover object-center"
                 loading="eager"

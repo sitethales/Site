@@ -5,7 +5,7 @@
 ### 1. Meta Tags Otimizadas
 - **Title Tag**: Incluído palavras-chave principais e diferenciadores
 - **Meta Description**: Descrição atrativa com call-to-action
-- **Keywords**: Palavras-chave relevantes para psicologia e LGBTQIA+
+- **Keywords**: Palavras-chave relevantes para psicologia e  
 - **Canonical URL**: Evita conteúdo duplicado
 - **Geo Tags**: Localização geográfica para SEO local
 
@@ -36,7 +36,7 @@
 - Psicólogo
 - Avaliação psicológica
 - Laudo psicológico
-- LGBTQIA+
+-  
 - Thales Valim Angelo
 
 ### Secundárias
@@ -48,7 +48,7 @@
 - Atendimento psicológico
 
 ### Long-tail
-- Psicólogo especializado em LGBTQIA+
+- Psicólogo especializado em  
 - Avaliação psicológica Santa Catarina
 - Laudo psicológico Florianópolis
 - Atendimento psicológico online
@@ -57,7 +57,7 @@
 ## Próximos Passos Recomendados
 
 ### 1. Conteúdo
-- [ ] Criar blog com artigos sobre psicologia e LGBTQIA+
+- [ ] Criar blog com artigos sobre psicologia e  
 - [ ] Adicionar FAQ com perguntas frequentes
 - [ ] Criar páginas específicas para cada serviço
 - [ ] Adicionar depoimentos de clientes (com autorização)

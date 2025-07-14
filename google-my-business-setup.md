@@ -7,7 +7,7 @@
 - **Categoria**: Psicólogo
 - **Telefone**: +55 48 98413-6071
 - **Site**: https://thalesvalempsi.com.br
-- **Descrição**: Psicólogo especializado em Avaliação Psicológica e atendimento LGBTQIA+. Elaboração de laudos, relatórios e pareceres psicológicos com abordagem ética e acolhedora.
+- **Descrição**: Psicólogo especializado em Avaliação Psicológica e atendimento  . Elaboração de laudos, relatórios e pareceres psicológicos com abordagem ética e acolhedora.
 
 ### Localização:
 - **Estado**: Santa Catarina
@@ -29,14 +29,14 @@
 2. Elaboração de Laudos Psicológicos
 3. Relatórios Psicológicos
 4. Pareceres Psicológicos
-5. Atendimento Psicológico LGBTQIA+
+5. Atendimento Psicológico  
 6. Consultas Online
 7. Orientação Psicológica
 
 ### Atributos Especiais:
 - ✅ Atendimento online
 - ✅ Aceita novos pacientes
-- ✅ Especialista em LGBTQIA+
+- ✅ Especialista em  
 - ✅ Avaliação psicológica
 - ✅ Atendimento personalizado
 - ✅ Confidencialidade garantida
@@ -58,12 +58,12 @@
 3. **P: Atende online?**
    R: Sim, ofereço atendimento online para consultas e orientações. Avaliações presenciais quando necessário.
 
-4. **P: Tem experiência com questões LGBTQIA+?**
-   R: Sim, sou especializado em atendimento à comunidade LGBTQIA+ com abordagem acolhedora e respeitosa.
+4. **P: Tem experiência com questões  ?**
+   R: Sim, sou especializado em atendimento à comunidade   com abordagem acolhedora e respeitosa.
 
 ### Posts Sugeridos:
 1. "Importância da avaliação psicológica para processos legais"
-2. "Como escolher um psicólogo especializado em LGBTQIA+"
+2. "Como escolher um psicólogo especializado em  "
 3. "Diferenças entre laudo, relatório e parecer psicológico"
 4. "Benefícios do atendimento psicológico online"
 

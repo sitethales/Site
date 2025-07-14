@@ -263,9 +263,9 @@ const Header = () => {
         <div className="flex items-center">
           <img
             ref={logoRef}
-            src="https://thalesvalimangelo.com.br/wp-content/uploads/2022/10/ThalesValim_Logo-11-1.png"
+            src="/logo-header.webp"
             alt="Thales Valim Angelo"
-            className="h-[70px] md:h-24 w-auto transition-transform duration-300 hover:scale-105 cursor-pointer will-change-transform"
+            className="h-[80px] md:h-24 w-auto transition-transform duration-300 hover:scale-105 cursor-pointer will-change-transform"
             onClick={() => scrollToSection('home')}
             loading="eager"
           />

@@ -118,10 +118,10 @@ RELATÓRIO DE SEO - $(date)
 - Componentes para conversão
 
 🎯 PALAVRAS-CHAVE TRABALHADAS:
-- psicólogo lgbtqia+ santa catarina
+- psicólogo   santa catarina
 - avaliação psicológica florianópolis
 - laudo psicológico santa catarina
-- psicólogo online lgbtqia+
+- psicólogo online  
 - relatório psicológico
 - parecer psicológico
 - identidade de gênero

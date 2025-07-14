@@ -1,6 +1,6 @@
 # 🧠 Thales Valim Angelo - Site Profissional
 
-Site profissional do psicólogo Thales Valim Angelo, especializado em atendimento à comunidade LGBTQIA+ e avaliação psicológica.
+Site profissional do psicólogo Thales Valim Angelo, especializado em atendimento à comunidade   e avaliação psicológica.
 
 [![Deploy Status](https://img.shields.io/badge/deploy-active-brightgreen)](https://thalesvalempsi.com.br)
 [![SEO Score](https://img.shields.io/badge/SEO-optimized-success)](https://thalesvalempsi.com.br)
@@ -171,10 +171,10 @@ npm run type-check   # Verifica tipos TypeScript
 ## 🔍 Palavras-Chave Foco
 
 ### Primárias
-- "psicólogo lgbtqia+ santa catarina"
+- "psicólogo   santa catarina"
 - "avaliação psicológica florianópolis"
 - "laudo psicológico santa catarina"
-- "psicólogo online lgbtqia+"
+- "psicólogo online  "
 
 ### Secundárias
 - "relatório psicológico"
@@ -238,4 +238,4 @@ Este projeto é propriedade privada de Joao Victor Franco. Todos os direitos res
 
 **Desenvolvido com ❤️ e foco em resultados**
 
-*Projeto otimizado para SEO, performance e conversão. Especializado em atendimento à comunidade LGBTQIA+ com tecnologia moderna e design inclusivo.*
+*Projeto otimizado para SEO, performance e conversão. Especializado em atendimento à comunidade   com tecnologia moderna e design inclusivo.*

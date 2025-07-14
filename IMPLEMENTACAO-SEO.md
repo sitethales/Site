@@ -3,9 +3,9 @@
 ## ✅ Melhorias Implementadas
 
 ### 1. Meta Tags Otimizadas
-- **Título otimizado**: "Thales Valim Angelo - Psicólogo Clínico LGBTQIA+ | Avaliação Psicológica"
+- **Título otimizado**: "Thales Valim Angelo - Psicólogo Clínico | Avaliação Psicológica"
 - **Descrição melhorada**: Mais específica e com palavras-chave relevantes
-- **Keywords expandidas**: Incluindo termos como "psicólogo lgbtqia+", "diversidade sexual", "identidade de gênero"
+- **Keywords expandidas**: Incluindo termos como "psicólogo  ", "diversidade sexual", "identidade de gênero"
 - **Geo-tags**: Localização para Santa Catarina e Florianópolis
 - **Canonical URL**: Definido como https://thalesvalempsi.com.br/
 
@@ -78,7 +78,7 @@ npm run build
 
 ### Primeiros 30 dias:
 - [ ] Indexação no Google (site:thalesvalempsi.com.br)
-- [ ] Posicionamento para "psicólogo lgbtqia+ santa catarina"
+- [ ] Posicionamento para "psicólogo   santa catarina"
 - [ ] Posicionamento para "avaliação psicológica florianópolis"
 - [ ] Tráfego orgânico inicial
 - [ ] Core Web Vitals
@@ -122,17 +122,17 @@ npm run build
 ### Médio prazo (90 dias):
 - [ ] Link building estratégico
 - [ ] Parcerias com outros profissionais
-- [ ] Conteúdo sobre LGBTQIA+ e psicologia
+- [ ] Conteúdo sobre   e psicologia
 - [ ] Otimização contínua baseada em dados
 - [ ] Expansion para outras cidades
 
 ## 🎯 Palavras-Chave Foco
 
 ### Primárias:
-1. "psicólogo lgbtqia+ santa catarina"
+1. "psicólogo   santa catarina"
 2. "avaliação psicológica florianópolis"
 3. "laudo psicológico santa catarina"
-4. "psicólogo online lgbtqia+"
+4. "psicólogo online  "
 
 ### Secundárias:
 1. "relatório psicológico"
@@ -141,10 +141,10 @@ npm run build
 4. "identidade de gênero psicólogo"
 
 ### Long-tail:
-1. "psicólogo especialista em questões lgbtqia+"
+1. "psicólogo especialista em questões  "
 2. "avaliação psicológica para mudança de nome"
 3. "laudo psicológico para cirurgia de redesignação"
-4. "psicólogo online para comunidade lgbtqia+"
+4. "psicólogo online para comunidade  "
 
 ## 📞 Contato para Dúvidas
 

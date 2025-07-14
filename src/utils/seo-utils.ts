@@ -1,12 +1,12 @@
 // SEO utilities for better search engine optimization
 
 export const generatePageTitle = (pageName?: string): string => {
-  const baseName = "Thales Valim Angelo - Psicólogo Clínico LGBTQIA+";
+  const baseName = "Thales Valim Angelo - Psicólogo Clínico";
   return pageName ? `${pageName} | ${baseName}` : `${baseName} | Avaliação Psicológica`;
 };
 
 export const generateMetaDescription = (pageDescription?: string): string => {
-  const baseDescription = "Psicólogo especializado em Avaliação Psicológica e atendimento LGBTQIA+. Elaboração de laudos, relatórios e pareceres psicológicos. Atendimento online e presencial em Santa Catarina.";
+  const baseDescription = "Psicólogo especializado em Avaliação Psicológica e atendimento  . Elaboração de laudos, relatórios e pareceres psicológicos. Atendimento online e presencial em Santa Catarina.";
   return pageDescription || baseDescription;
 };
 
@@ -17,13 +17,12 @@ export const generateKeywords = (additionalKeywords: string[] = []): string => {
     'laudo psicológico',
     'relatório psicológico',
     'psicologia clínica',
-    'LGBTQIA+',
     'thales valim angelo',
     'santa catarina',
     'florianópolis',
     'psicólogo online',
     'atendimento psicológico',
-    'psicólogo lgbtqia+',
+    'psicólogo  ',
     'diversidade sexual',
     'identidade de gênero',
     'saúde mental',
@@ -46,7 +45,7 @@ export const generateStructuredData = (pageType: 'home' | 'service' | 'about' | 
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Thales Valim Angelo",
-    "description": "Psicólogo especializado em Avaliação Psicológica e atendimento LGBTQIA+",
+    "description": "Psicólogo especializado em Avaliação Psicológica e atendimento  ",
     "image": "https://thalesvalempsi.com.br/lovable-uploads/c600054e-c290-4656-ae88-f910dbdea559.png",
     "url": "https://thalesvalempsi.com.br",
     "telephone": "+55-48-98413-6071",
@@ -69,7 +68,7 @@ export const generateStructuredData = (pageType: 'home' | 'service' | 'about' | 
       "name": "Thales Valim Angelo",
       "jobTitle": "Psicólogo",
       "alumniOf": "Universidade Federal de Santa Catarina",
-      "description": "Psicólogo especializado em Avaliação Psicológica e atendimento LGBTQIA+"
+      "description": "Psicólogo especializado em Avaliação Psicológica e atendimento  "
     }
   };
 
@@ -93,8 +92,8 @@ export const generateStructuredData = (pageType: 'home' | 'service' | 'about' | 
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Atendimento LGBTQIA+",
-                "description": "Atendimento psicológico especializado para a comunidade LGBTQIA+"
+                "name": "Atendimento  ",
+                "description": "Atendimento psicológico especializado para a comunidade  "
               }
             },
             {

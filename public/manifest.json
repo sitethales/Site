@@ -1,0 +1,71 @@
+{
+  "name": "Thales Valim Angelo - Psicólogo",
+  "short_name": "Thales Valim",
+  "description": "Psicólogo especializado em Avaliação Psicológica",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b4458",
+  "icons": [
+    {
+      "src": "/favicon-zoomed.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/favicon-zoomed.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/favicon-zoomed.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/favicon-zoomed.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/favicon-zoomed.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/favicon-16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "favicon"
+    },
+    {
+      "src": "/favicon-zoomed.png", 
+      "sizes": "120x120",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon-zoomed.png",
+      "sizes": "180x180", 
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo-thales.webp",
+      "sizes": "512x512",
+      "type": "image/webp", 
+      "purpose": "any maskable"
+    }
+  ]
+}

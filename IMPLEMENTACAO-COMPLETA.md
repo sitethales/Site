@@ -25,10 +25,10 @@
 - [x] **Performance Tracking** - Core Web Vitals
 
 ### 4. **Palavras-Chave Implementadas**
-- [x] psicólogo lgbtqia+ santa catarina
+- [x] psicólogo   santa catarina
 - [x] avaliação psicológica florianópolis
 - [x] laudo psicológico santa catarina
-- [x] psicólogo online lgbtqia+
+- [x] psicólogo online  
 - [x] relatório psicológico
 - [x] parecer psicológico
 - [x] identidade de gênero
