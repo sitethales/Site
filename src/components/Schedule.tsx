@@ -233,7 +233,7 @@ const Schedule = () => {
           {/* Coluna Direita - Serviços com design minimalista */}
           <div 
             ref={rightColumnRef}
-            className="bg-card rounded-xl shadow-card border border-border overflow-hidden h-full backdrop-blur-sm opacity-0"
+            className="bg-card rounded-xl shadow-card border border-border overflow-hidden h-full opacity-0"
           >
             <div className="px-4 py-8 md:p-8 h-full flex flex-col">
               <h3 className="text-xl font-semibold text-foreground text-center mb-6">

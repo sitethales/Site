@@ -1,3 +1,11 @@
+@import '@fontsource/arima/400.css';
+@import '@fontsource/arima/600.css';
+@import '@fontsource/arima/700.css';
+@import '@fontsource/montserrat/300.css';
+@import '@fontsource/montserrat/400.css';
+@import '@fontsource/montserrat/500.css';
+@import '@fontsource/montserrat/600.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -116,9 +124,6 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  .theme {
-    --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
-  }
 }
 
 @layer base {
@@ -158,25 +163,20 @@ All colors MUST be HSL.
   animation: orbit-reverse var(--duration) linear infinite;
 }
 
-/* ---break---
-*/
+/* Pausa as animações CSS contínuas quando a seção está fora da viewport
+   (atributo controlado pelo Hero). Pausar em vez de remover: a posição dos
+   ícones do orbit vem do transform dos keyframes. */
+[data-offscreen] .animate-orbit,
+[data-offscreen] .animate-orbit-reverse,
+[data-offscreen] .animate-pulse {
+  animation-play-state: paused !important;
+}
 
-@theme inline {
-  @keyframes orbit {
-  0% {
-    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
-    }
-  100% {
-    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
-    }
-  }
-  @keyframes orbit {
-  0% {
-    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
-    }
-  100% {
-    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
-    }
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbit,
+  .animate-orbit-reverse,
+  .animate-pulse {
+    animation-play-state: paused !important;
   }
 }
 

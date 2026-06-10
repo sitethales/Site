@@ -1,6 +1,6 @@
   import React, { memo, useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { MessageCircle, Phone, Clock, MapPin } from 'lucide-react';
+import { MessageCircle, Phone, Clock } from 'lucide-react';
 
 const ContactForm = memo(() => {
   const whatsappNumber = "5548984136071"; // Substitua pelo seu número real
@@ -13,7 +13,6 @@ const ContactForm = memo(() => {
   const whatsappButtonRef = useRef<HTMLButtonElement>(null);
   const hourCardRef = useRef<HTMLDivElement>(null);
   const phoneCardRef = useRef<HTMLDivElement>(null);
-  const locationCardRef = useRef<HTMLDivElement>(null);
   const instructionsRef = useRef<HTMLDivElement>(null);
 
   const handleWhatsAppClick = () => {
@@ -37,9 +36,14 @@ const ContactForm = memo(() => {
     });
   };
 
+  const sectionRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    // Criando contexto GSAP para limpeza automática
-    const ctx = gsap.context(() => {
+    let ctx: gsap.Context | undefined;
+
+    // Só cria a timeline quando a seção entra na viewport
+    const createAnimations = () => {
+      ctx = gsap.context(() => {
       const tl = gsap.timeline({
         defaults: {
           force3D: true,
@@ -81,13 +85,6 @@ const ContactForm = memo(() => {
         { opacity: 1, x: 0, duration: 0.5, ease: "power2.out", stagger: 0.1 },
         "-=0.3"
       )
-      // Animação do card de localização
-      .fromTo(
-        locationCardRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
-        "-=0.2"
-      )
       // Animação das instruções
       .fromTo(
         instructionsRef.current,
@@ -95,13 +92,31 @@ const ContactForm = memo(() => {
         { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
         "-=0.1"
       );
-    });
+      });
+    };
 
-    return () => ctx.revert(); // Limpeza automática
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          createAnimations();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+    const sectionElement = sectionRef.current;
+    if (sectionElement) {
+      observer.observe(sectionElement);
+    }
+
+    return () => {
+      observer.disconnect();
+      ctx?.revert(); // Limpeza automática
+    };
   }, []);
 
   return (
-    <div id='contato' className="min-h-screen bg-gradient-to-br from-background via-accent/20 to-secondary/30 py-12 px-4 sm:px-6 lg:px-8">
+    <div id='contato' ref={sectionRef} className="min-h-screen bg-gradient-to-br from-background via-accent/20 to-secondary/30 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h1 
@@ -121,7 +136,7 @@ const ContactForm = memo(() => {
         {/* Card Principal */}
         <div
           ref={cardRef}
-          className="bg-card/80 backdrop-blur-sm rounded-2xl shadow-elegant border border-border/50 overflow-hidden"
+          className="bg-card/80 rounded-2xl shadow-elegant border border-border/50 overflow-hidden"
         >
           <div className="p-8 md:p-12">
             {/* WhatsApp Button */}
@@ -143,7 +158,7 @@ const ContactForm = memo(() => {
               {/* Horário de Atendimento */}
               <div
                 ref={hourCardRef}
-                className="bg-accent/30 backdrop-blur-sm rounded-xl p-6 border border-border/30"
+                className="bg-accent/30 rounded-xl p-6 border border-border/30"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -161,7 +176,7 @@ const ContactForm = memo(() => {
               {/* Telefone */}
               <div
                 ref={phoneCardRef}
-                className="bg-accent/30 backdrop-blur-sm rounded-xl p-6 border border-border/30"
+                className="bg-accent/30 rounded-xl p-6 border border-border/30"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">

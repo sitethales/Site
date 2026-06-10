@@ -16,7 +16,6 @@ const Header = () => {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const mobileMenuItemsRef = useRef<(HTMLButtonElement | HTMLAnchorElement | null)[]>([]);
   const ctx = useRef<gsap.Context | null>(null);
-  const scrollTween = useRef<gsap.core.Tween | null>(null);
   const isMobile = useIsMobile();
 
   // Debounce para melhorar o desempenho do evento de scroll
@@ -104,39 +103,6 @@ const Header = () => {
     return () => ctx.current?.revert();
   }, [isMobile]); // Dependência do isMobile para ajustar as animações baseado no tipo de dispositivo
   
-  // Efeito separado para o scroll - melhor performance e animação melhorada
-  useEffect(() => {
-    // Cancela qualquer animação anterior para evitar acumulação
-    if (scrollTween.current) {
-      scrollTween.current.kill();
-    }
-    
-    // Cria nova animação com valores atualizados e efeito de fade melhorado
-    if (headerRef.current) {
-      // Define um atraso menor quando estiver scrollando para baixo (fade in mais rápido)
-      // e um atraso maior quando voltar ao topo (fade out mais suave)
-      const delay = isScrolled ? 0 : 0.1;
-      
-      scrollTween.current = gsap.to(headerRef.current, {
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.97)' : 'rgba(255, 255, 255, 0)',
-        backdropFilter: isScrolled ? 'blur(12px)' : 'blur(0px)',
-        boxShadow: isScrolled ? '0 4px 20px -4px hsl(0 0% 0% / 0.12)' : 'none',
-        duration: isScrolled ? 0.35 : 0.5, // Duração maior para o fade out
-        ease: isScrolled ? "power2.out" : "power2.inOut", // Easing diferente para cada direção
-        delay: delay, // Aplica o atraso configurado
-        overwrite: "auto" // Sobrescreve automaticamente animações conflitantes
-      });
-      
-      // Efeito sutil de escala para enfatizar a transição
-      gsap.to(headerRef.current, {
-        scale: isScrolled ? 1 : 0.999,
-        duration: 0.2,
-        clearProps: isScrolled ? "" : "scale", // Limpa a propriedade apenas no fade out
-        ease: "sine.out"
-      });
-    }
-  }, [isScrolled]);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -257,7 +223,11 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-border/20 will-change-transform will-change-background"
+      className={`fixed top-0 left-0 right-0 z-50 border-b border-border/20 transition-[background-color,box-shadow] ${
+        isScrolled
+          ? 'duration-300 ease-out bg-white/[0.97] shadow-[0_4px_20px_-4px_hsl(0_0%_0%_/_0.12)]'
+          : 'duration-500 ease-in-out bg-transparent shadow-none'
+      }`}
     >
       <div className="container mx-auto px-6 py-4 md:py-4 flex items-center justify-between">
         <div className="flex items-center">
@@ -265,7 +235,7 @@ const Header = () => {
             ref={logoRef}
             src="/logo-header.webp"
             alt="Thales Valim Angelo"
-            className="h-[80px] md:h-24 w-auto transition-transform duration-300 hover:scale-105 cursor-pointer will-change-transform"
+            className="h-[80px] md:h-24 w-auto transition-transform duration-300 hover:scale-105 cursor-pointer"
             onClick={() => scrollToSection('home')}
             loading="eager"
           />
@@ -307,12 +277,10 @@ const Header = () => {
       {/* Mobile Menu */}
       <div 
         ref={mobileMenuRef}
-        className={`lg:hidden bg-white/95 backdrop-blur-lg border-t border-border shadow-xl ${isMobileMenuOpen ? 'block' : 'hidden'}`}
-        style={{ 
-          height: 'auto', 
+        className={`lg:hidden bg-white border-t border-border shadow-xl ${isMobileMenuOpen ? 'block' : 'hidden'}`}
+        style={{
+          height: 'auto',
           opacity: 0,
-          willChange: 'opacity, height',
-          transform: 'translateZ(0)' // Força aceleração por hardware
         }}
       >
         <nav className="container mx-auto px-4 py-4 space-y-2">

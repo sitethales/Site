@@ -79,7 +79,7 @@ const OrbitingCircles: React.FC<OrbitingCirclesProps> = ({
       
       {/* Center element with uploaded image */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <div className="p-4 bg-background/80 backdrop-blur-md rounded-full border border-primary/20 shadow-elegant">
+        <div className="p-4 bg-background/95 rounded-full border border-primary/20 shadow-elegant">
           <img 
             src="/lovable-uploads/c600054e-c290-4656-ae88-f910dbdea559.png" 
             alt="Center logo" 

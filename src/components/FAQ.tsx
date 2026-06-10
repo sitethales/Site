@@ -115,7 +115,7 @@ export default function FAQ() {
         <div className="max-w-3xl mx-auto">
           <div 
             ref={accordionRef}
-            className="bg-card rounded-3xl shadow-warm border border-accent/20 overflow-hidden backdrop-blur-sm opacity-0 transform translate-y-4 transition-all duration-700"
+            className="bg-card rounded-3xl shadow-warm border border-accent/20 overflow-hidden opacity-0 transform translate-y-4 transition-all duration-700"
           >
             <Accordion
               type="single"

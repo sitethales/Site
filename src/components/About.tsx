@@ -18,7 +18,7 @@ const About = memo(() => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
               
               {/* Floating info card */}
-              <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+              <div className="absolute bottom-6 left-6 right-6 bg-white/95 rounded-xl p-6 shadow-lg">
                 <div className="flex items-center gap-4">
                   <div className="bg-primary/10 p-3 rounded-xl">
                     <span className="text-2xl font-bold text-primary">5+</span>
