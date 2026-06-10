@@ -6,27 +6,27 @@ const ForWho = () => {
     {
       title: "Empresas e organizações",
       description: "Para organizações que solicitam avaliações psicossociais em processos de admissão, retorno ao trabalho, mudança de função ou desligamento. Também inclui avaliações em recrutamento e seleção.",
-      image: "/build.png"
+      image: "/build.webp"
     },
     {
       title: "Advogados(as) e profissionais do Direito",
       description: "Atuação como assistente técnico e produção de pareceres psicológicos em processos judiciais. Apoio a ações nas áreas de família, cível e criminal.",
-      image: "/law.png"
+      image: "/law.webp"
     },
     {
       title: "Público Geral",
       description: "Para quem precisa de avaliação para procedimentos cirúrgicos (bariátrica, laqueadura, vasectomia, redesignação sexual), processos seletivos e concursos, psicodiagnóstico, afirmação de gênero, entre outras finalidades clínicas, legais ou institucionais.",
-      image: "/people.png"
+      image: "/people.webp"
     },
     {
       title: "Profissionais da saúde e instituições médicas",
       description: "Atendimento a demandas clínicas que requerem parecer ou laudo psicológico como parte de tratamentos, como cirurgias, terapia hormonal para afirmação de gênero, reprodução assistida e outras intervenções médicas.",
-      image: "/medic.png"
+      image: "/medic.webp"
     }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-accent/20 to-white section-animate">
+    <section id="para-quem" className="py-20 bg-gradient-to-br from-white via-accent/20 to-white section-animate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="font-arima text-4xl md:text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
@@ -50,6 +50,10 @@ voltadas a diferentes contextos e demandas.
                   <img
                     src={audience.image}
                     alt={audience.title}
+                    loading="lazy"
+                    decoding="async"
+                    width={640}
+                    height={640}
                     className=" h-40 md:h-48 lg:h-56 w-auto object-contain rounded-2xl mx-auto"
                     style={{
                       transition: 'transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1)', 

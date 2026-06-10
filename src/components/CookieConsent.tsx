@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { X, Cookie } from 'lucide-react';
-import { setCookieConsent, getCookieConsent } from '../utils/analytics';
+import { setCookieConsent, getCookieConsent, initGA } from '../utils/analytics';
 
 const CookieConsent: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,6 +10,10 @@ const CookieConsent: React.FC = () => {
     // Check if user has already given consent
     const hasConsent = getCookieConsent();
     setIsVisible(!hasConsent);
+    // Visitantes recorrentes que já aceitaram precisam do GA inicializado nesta visita
+    if (hasConsent) {
+      initGA();
+    }
   }, []);
 
   const handleAccept = () => {

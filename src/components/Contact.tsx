@@ -153,7 +153,7 @@ const ContactForm = memo(() => {
                 </div>
                 <div className="space-y-2 font-montserrat">
                   <p className="text-foreground"><span className="font-medium">Segunda a Sexta:</span> 08:00 - 18:00</p>
-                  <p className="text-muted-foreground text-sm">Sabado: Fechado</p>
+                  <p className="text-muted-foreground text-sm">Sábado: Fechado</p>
                   <p className="text-muted-foreground text-sm">Domingo: Fechado</p>
                 </div>
               </div>

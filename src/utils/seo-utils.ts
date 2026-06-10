@@ -6,7 +6,7 @@ export const generatePageTitle = (pageName?: string): string => {
 };
 
 export const generateMetaDescription = (pageDescription?: string): string => {
-  const baseDescription = "Psicólogo especializado em Avaliação Psicológica e atendimento  . Elaboração de laudos, relatórios e pareceres psicológicos. Atendimento online e presencial em Santa Catarina.";
+  const baseDescription = "Psicólogo especializado em Avaliação Psicológica. Elaboração de laudos, relatórios e pareceres psicológicos. Atendimento online e presencial em Santa Catarina.";
   return pageDescription || baseDescription;
 };
 
@@ -22,7 +22,6 @@ export const generateKeywords = (additionalKeywords: string[] = []): string => {
     'florianópolis',
     'psicólogo online',
     'atendimento psicológico',
-    'psicólogo  ',
     'diversidade sexual',
     'identidade de gênero',
     'saúde mental',
@@ -45,7 +44,7 @@ export const generateStructuredData = (pageType: 'home' | 'service' | 'about' | 
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Thales Valim Angelo",
-    "description": "Psicólogo especializado em Avaliação Psicológica e atendimento  ",
+    "description": "Psicólogo especializado em Avaliação Psicológica",
     "image": "https://thalesvalempsi.com.br/lovable-uploads/c600054e-c290-4656-ae88-f910dbdea559.png",
     "url": "https://thalesvalempsi.com.br",
     "telephone": "+55-48-98413-6071",
@@ -68,7 +67,7 @@ export const generateStructuredData = (pageType: 'home' | 'service' | 'about' | 
       "name": "Thales Valim Angelo",
       "jobTitle": "Psicólogo",
       "alumniOf": "Universidade Federal de Santa Catarina",
-      "description": "Psicólogo especializado em Avaliação Psicológica e atendimento  "
+      "description": "Psicólogo especializado em Avaliação Psicológica"
     }
   };
 
@@ -86,14 +85,6 @@ export const generateStructuredData = (pageType: 'home' | 'service' | 'about' | 
                 "@type": "Service",
                 "name": "Avaliação Psicológica",
                 "description": "Elaboração de laudos, relatórios e pareceres psicológicos para diversas finalidades"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Atendimento  ",
-                "description": "Atendimento psicológico especializado para a comunidade  "
               }
             },
             {
@@ -131,19 +122,6 @@ export const generateStructuredData = (pageType: 'home' | 'service' | 'about' | 
     default:
       return baseData;
   }
-};
-
-export const preloadCriticalResources = () => {
-  // Preload critical fonts
-  const fontLink = document.createElement('link');
-  fontLink.rel = 'preload';
-  fontLink.href = 'https://fonts.googleapis.com/css2?family=Arima:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap';
-  fontLink.as = 'style';
-  document.head.appendChild(fontLink);
-
-  // Preload critical images
-  const heroImage = new Image();
-  heroImage.src = '/lovable-uploads/c600054e-c290-4656-ae88-f910dbdea559.png';
 };
 
 export const optimizeImages = () => {

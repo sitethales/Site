@@ -11,7 +11,7 @@ interface SEOProps {
 export const SEOHead = ({
   title = "Thales Valim Angelo - Psicólogo Especialista em Avaliação Psicológica",
   description = "Psicólogo especializado em Avaliação Psicológica com abordagem ética, técnica e acolhedora. Elaboração de laudos, relatórios e pareceres psicológicos para diversas finalidades.",
-  image = "https://thalesvalempsi.com.br/lovable-uploads/c600054e-c290-4656-ae88-f910dbdea559.png",
+  image = "https://thalesvalempsi.com.br/logo-thales.webp",
   url = "https://thalesvalempsi.com.br",
   type = "website"
 }: SEOProps) => {

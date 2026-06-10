@@ -36,7 +36,7 @@ export const sanitizeInput = (input: string): string => {
 
 // Phone number validation and sanitization
 export const sanitizePhoneNumber = (phone: string): string => {
-  return phone.replace(/[^\d\s\-\+\(\)]/g, '').trim();
+  return phone.replace(/[^\d\s\-+()]/g, '').trim();
 };
 
 // Email validation

@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SEOHead } from '../components/SEO/MetaTags';
 import { useSecurityHeaders } from '../components/Security/CSPHeaders';
 import { withLazyLoading } from '../components/Performance/LazyComponents';
-import { preloadCriticalResources, optimizeImages } from '../utils/seo-utils';
+import { optimizeImages } from '../utils/seo-utils';
 import { trackPerformance } from '../utils/analytics';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -27,7 +27,6 @@ const Index = memo(() => {
 
   useEffect(() => {
     // SEO optimizations
-    preloadCriticalResources();
     optimizeImages();
     
     // Performance tracking

@@ -7,12 +7,13 @@ const Footer = () => {
           {/* Logo e Copyright */}
           <div>
             <img
-              src="https://thalesvalimangelo.com.br/wp-content/uploads/2022/10/ThalesValim_Logo-11-1.png"
+              src="/logo-header.webp"
               alt="Thales Valim Angelo"
               className="h-12 w-auto mx-auto md:mx-0 mb-4 opacity-80"
+              loading="lazy"
             />
             <p className="font-montserrat text-gray-300 text-sm">
-              Copyright 2025 – Todos os direitos reservados. Desenvolvido por João Vitor Franco   
+              Copyright {new Date().getFullYear()} – Todos os direitos reservados. Desenvolvido por João Vitor Franco
             </p>
           </div>
           

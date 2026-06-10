@@ -1,33 +1,32 @@
-import { lazy, Suspense, ComponentType } from 'react';
+import { lazy, Suspense, ComponentType, ComponentProps } from 'react';
 
 // Lazy loading wrapper with error boundary - simplified version
 export const withLazyLoading = (
-  importComponent: () => Promise<{ default: ComponentType<any> }>,
+  importComponent: () => Promise<{ default: ComponentType }>,
   fallback: JSX.Element = <div className="w-full h-32 bg-muted animate-pulse rounded-lg" />
 ) => {
   const LazyComponent = lazy(importComponent);
-  
-  return (props: any) => (
+
+  return () => (
     <Suspense fallback={fallback}>
-      <LazyComponent {...props} />
+      <LazyComponent />
     </Suspense>
   );
 };
 
 // Performance optimized image component
-export const OptimizedImage = ({ 
-  src, 
-  alt, 
-  className = "", 
+export const OptimizedImage = ({
+  src,
+  alt,
+  className = "",
   loading = "lazy",
-  ...props 
+  ...props
 }: {
   src: string;
   alt: string;
   className?: string;
   loading?: "lazy" | "eager";
-  [key: string]: any;
-}) => (
+} & Omit<ComponentProps<'img'>, 'src' | 'alt' | 'className' | 'loading'>) => (
   <img
     src={src}
     alt={alt}
